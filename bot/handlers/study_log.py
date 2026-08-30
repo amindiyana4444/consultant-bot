@@ -1,7 +1,7 @@
 from telegram import Update, ReplyKeyboardMarkup, KeyboardButton
 from telegram.ext import ContextTypes
 import httpx
-from ..config import API_URL, SUBJECTS
+from config import API_URL, SUBJECTS
 
 async def study_log(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = []

@@ -1,6 +1,15 @@
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+# Add parent directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from bot.config import TELEGRAM_TOKEN
+from bot.handlers.start import start, handle_registration
+from bot.handlers.study_log import study_log, handle_study_log
+from bot.handlers.schedule import show_schedule
+from bot.handlers.stats import show_stats
+from bot.handlers.message import send_message, handle_message
 
 from telegram import Update
 from telegram.ext import (
@@ -10,12 +19,6 @@ from telegram.ext import (
     filters,
     ContextTypes
 )
-from config import TELEGRAM_TOKEN
-from handlers.start import start, handle_registration
-from handlers.study_log import study_log, handle_study_log
-from handlers.schedule import show_schedule
-from handlers.stats import show_stats
-from handlers.message import send_message, handle_message
 
 async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text
@@ -41,7 +44,7 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif text == "ارسال پیام به مشاور":
         await send_message(update, context)
 
-def main():
+def run_bot():
     if not TELEGRAM_TOKEN:
         print("خطا: TELEGRAM_TOKEN تنظیم نشده است")
         return
@@ -55,4 +58,4 @@ def main():
     app.run_polling()
 
 if __name__ == "__main__":
-    main()
+    run_bot()

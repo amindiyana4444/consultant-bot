@@ -1,7 +1,7 @@
 from telegram import Update
 from telegram.ext import ContextTypes
 import httpx
-from ..config import API_URL
+from config import API_URL
 
 async def show_stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user

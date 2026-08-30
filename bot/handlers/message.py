@@ -1,7 +1,7 @@
 from telegram import Update
 from telegram.ext import ContextTypes
 import httpx
-from ..config import API_URL
+from config import API_URL
 
 async def send_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(

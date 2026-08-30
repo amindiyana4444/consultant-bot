@@ -27,3 +27,7 @@ app.include_router(messages.router, prefix="/messages", tags=["پیام‌ها"]
 @app.get("/")
 def root():
     return {"message": "به API مشاور کنکور خوش آمدید"}
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}

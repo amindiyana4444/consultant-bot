@@ -1,7 +1,7 @@
 from telegram import Update
 from telegram.ext import ContextTypes
 import httpx
-from ..config import API_URL, DAYS_OF_WEEK
+from config import API_URL, DAYS_OF_WEEK
 
 async def show_schedule(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
