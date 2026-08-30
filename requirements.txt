@@ -5,3 +5,4 @@ pydantic>=2.5.3
 python-dotenv>=1.0.0
 python-telegram-bot==20.7
 httpx==0.25.2
+psycopg2-binary>=2.9.9
