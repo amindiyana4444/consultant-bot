@@ -4,14 +4,14 @@ import os
 from threading import Thread
 
 def run_api():
-    os.chdir('api')
+    os.chdir(os.path.join(os.path.dirname(__file__), 'api'))
     subprocess.run([
         sys.executable, '-m', 'uvicorn', 'main:app',
         '--host', '0.0.0.0', '--port', os.getenv('PORT', '8000')
     ])
 
 def run_bot():
-    os.chdir('bot')
+    os.chdir(os.path.join(os.path.dirname(__file__), 'bot'))
     subprocess.run([sys.executable, 'main.py'])
 
 if __name__ == '__main__':
